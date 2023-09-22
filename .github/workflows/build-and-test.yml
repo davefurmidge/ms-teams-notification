@@ -1,0 +1,27 @@
+name: "Build & Test"
+on: 
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        npm install
+        npm run all
+  test: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./
+      with: 
+        github-token: ${{ github.token }}
+        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        notification-summary: Build and Test Workflow Run
+        notification-color: dc3545
+        timezone: Europe/London
+  

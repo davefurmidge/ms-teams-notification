@@ -20,7 +20,7 @@
     "node",
     "setup"
   ],
-  "author": "jdcargile",
+  "author": "davefurmidge",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0",
