@@ -1,19 +1,25 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-
-# Define your inputs here.
+name: 'Microsoft Teams Notification'
+description: 'Send a custom notification message to a Microsoft Teams channel with GitHub repo details'
+author: 'davefurmidge'
+branding:
+  icon: message-circle
+  color: blue
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
-
+  github-token:
+    description: 'GitHub Token'
+    required: true 
+  ms-teams-webhook-uri:
+    description: 'Microsoft Teams Webhook URI'
+    required: true 
+  notification-summary:
+    description: 'Message to be sent to Microsoft Teams channel'
+    required: true 
+  notification-color:
+    description: 'Color of notification header line'
+    required: true 
+  timezone:
+    description: 'Timezone (ex. America/Denver)'
+    required: false
 runs:
-  using: node20
-  main: dist/index.js
+  using: 'node16'
+  main: 'dist/index.js'
